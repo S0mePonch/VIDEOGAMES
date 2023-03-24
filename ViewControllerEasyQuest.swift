@@ -6,22 +6,24 @@
 //
 
 import UIKit
-
+import AVFoundation
 class ViewControllerEasyQuest: UIViewController {
-
-    @IBOutlet weak var lifesView: UILabel!
+    var player: AVAudioPlayer?
     @IBOutlet weak var scoreView: UILabel!
     @IBOutlet weak var questView: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var btnTrue: UIButton!
     @IBOutlet weak var btnFalse: UIButton!
+    @IBOutlet weak var imgLife01: UIImageView!
+    @IBOutlet weak var imgLife02: UIImageView!
+    
+    @IBOutlet weak var imgLife03: UIImageView!
     
     var lifes: Int = 3
     var score: Int = 0
     var posicion = 0
     /*Estas son los arreglos para las preguntas, respuestas e imagenes
      Tienen que ir en orden que vaya referenciado a la pregunta con su imagen y su respuesta
-     
      */
     var respuesta = ""
     var questions = [
@@ -101,30 +103,54 @@ class ViewControllerEasyQuest: UIViewController {
         super.viewDidLoad()
 
         //Este es para que cuando se inicie la aplicacion el juego ya cargue los valores por automatico
-        lifesView.text = "LIFES: " + String(lifes)
+        
         scoreView.text = "SCORE: " + String(score)
         
         throwQuest()
     }
     
     @IBAction func btnAction(_ sender: UIButton) {
-        if(score == 4 ){
-            btnTrue.isEnabled = false
-            btnFalse.isEnabled = false
-            
-            var dialogMessage = UIAlertController(title: "YOU WON", message: "Try it Again", preferredStyle: .alert)
-            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in })
-            dialogMessage.addAction(ok)
-            self.present(dialogMessage, animated: true, completion: nil)
-        }
         
         if(sender.titleLabel?.text == respuesta){
             score += 1
             scoreView.text = "SCORE: " + String(score)
+            
+            guard let path = Bundle.main.path(forResource: "link correctQuest", ofType:"wav") else {
+                return }
+            let url = URL(fileURLWithPath: path)
+
+            do {
+                player = try AVAudioPlayer(contentsOf: url)
+                player?.play()
+                
+            } catch let error {
+                print(error.localizedDescription)
+        }
+            
+            if(score == 5 ){
+                btnTrue.isEnabled = false
+                btnFalse.isEnabled = false
+                
+                var dialogMessage = UIAlertController(title: "YOU WON", message: "Try it Again", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in })
+                dialogMessage.addAction(ok)
+                self.present(dialogMessage, animated: true, completion: nil)
+            }
         }else{
             scoreView.text = "SCORE: " + String(score)
             lifes -= 1
-            lifesView.text = "LIFES: " + String(lifes)
+            
+            guard let path = Bundle.main.path(forResource: "link damage", ofType:"wav") else {
+                return }
+            let url = URL(fileURLWithPath: path)
+
+            do {
+                player = try AVAudioPlayer(contentsOf: url)
+                player?.play()
+                
+            } catch let error {
+                print(error.localizedDescription)
+        }
             
             if (lifes == 0){
                 btnTrue.isEnabled = false
@@ -135,7 +161,24 @@ class ViewControllerEasyQuest: UIViewController {
                 dialogMessage.addAction(ok)
                 self.present(dialogMessage, animated: true, completion: nil)
                 
+                guard let path = Bundle.main.path(forResource: "Link gameOver", ofType:"wav") else {
+                    return }
+                let url = URL(fileURLWithPath: path)
+
+                do {
+                    player = try AVAudioPlayer(contentsOf: url)
+                    player?.play()
+                    
+                } catch let error {
+                    print(error.localizedDescription)
+            }
                 
+                imgLife01.isHidden = true
+                
+            }else if(lifes == 1){
+                imgLife02.isHidden = true
+            }else if(lifes == 2){
+                imgLife03.isHidden = true
             }
         }
         
@@ -146,11 +189,88 @@ class ViewControllerEasyQuest: UIViewController {
         score = 0
         lifes = 3
         
+        imgLife01.isHidden = false
+        imgLife02.isHidden = false
+        imgLife03.isHidden = false
+        
         scoreView.text = "SCORE: " + String(score)
-        lifesView.text = "LIFES: " + String(lifes)
+        
         
         btnTrue.isEnabled = true
         btnFalse.isEnabled = true
+        
+         questions = [
+            //FALSE
+            "Zelda es el personaje principal?",
+            "El videojuego salio en 2000?",
+            "La ave loftwing era color verde?",
+            "La trifuerza es malvada?",
+            "Hubo algun romance entre Zelda y Link?",
+            "Link es un adulto en realidad?",
+            "Cada 50 años nace un varon en el pueblo de Gerudo?",
+            "El caballo Epona era de link?",
+            "Podias aprender hasta 20 canciones en ocarina of time?",
+            "Al final del juego de majora's Skull Kid muere?",
+            //TRUE
+            "Tatl y Tael son hermanos?",
+            "Link llego a usar todas las mascaras en majora's?",
+            "Tatl estuvo con link y Tael con Skull Kid durante todo el juego de majora's?",
+            "Skull Kid era bueno en realidad?",
+            "Los campeones fueron asesinados durante la guerra de hyrule warrios?",
+            "La mascara majoras estaba maldita?",
+            "Los Sheikahs eran la civilizacion mas avanzada y poderosa?",
+            "Ganondorf es un villano?",
+            "Sheik es zelda?",
+            "La Diosa Hylia creo la master sword?"]
+        
+         respuestas = [
+        //FALSE
+        "FALSE", // zelda principal
+        "FALSE", // Salida del juego
+        "FALSE", // Ave loftwing
+        "FALSE", // trifuerza
+        "FALSE", // romance
+        "FALSE", // link adulto
+        "FALSE", // Varon de gerudo
+        "FALSE", // Caballo Epona
+        "FALSE", // Canciones de ocarina
+        "FALSE", // Skull Kid muerte
+        //TRUE
+        "TRUE", // Tatl Y Tael brothers
+        "TRUE", // Masks
+        "TRUE", // Tatl y Tael
+        "TRUE", // Skull kid
+        "TRUE", // Champions
+        "TRUE", // mask majoras
+        "TRUE", // Sheikhas
+        "TRUE", // Ganondorf
+        "TRUE", // Sheik
+        "TRUE" // Diosa Hylia
+        ]
+        
+         images = [
+                      //FALSE
+                      "zelda",
+                      "zeldaGame",
+                      "loftwing",
+                      "trifuerza",
+                      "ZeldaAndLink",
+                      "linkChild",
+                      "towngerudo",
+                      "Epona",
+                      "LinkPlayOcarina",
+                      "SkullKidNormal",
+                      //TRUE
+                      "TatlAndTaelBrothers",
+                      "Masks",
+                      "TatlAndTael",
+                      "SkullKid",
+                      "champions",
+                      "maskMajoras",
+                      "sheikah",
+                      "ganondorf",
+                      "sheik",
+                      "diosa"]
         
         throwQuest()
     }

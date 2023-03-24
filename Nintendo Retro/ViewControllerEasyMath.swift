@@ -6,8 +6,11 @@
 //
 
 import UIKit
-
+import AVFoundation
+import AudioToolbox
 class ViewControllerEasyMath: UIViewController {
+    
+    var player: AVAudioPlayer?
     
     @IBOutlet weak var scoreView: UILabel!
     @IBOutlet weak var numberOpView01: UILabel!
@@ -40,6 +43,20 @@ class ViewControllerEasyMath: UIViewController {
         lifesGame = 3
         scoreGame = 0
         
+        guard let path = Bundle.main.path(forResource: "POW", ofType:"wav") else {
+            return }
+        let url = URL(fileURLWithPath: path)
+
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            player?.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
+    }
+        // Mandar vibracion
+        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+        
         imgLife01.isHidden = false
         imgLife02.isHidden = false
         imgLife03.isHidden = false
@@ -63,6 +80,7 @@ class ViewControllerEasyMath: UIViewController {
             let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in})
             dialogMessage.addAction(ok)
             self.present(dialogMessage, animated: true, completion: nil)
+            
         }
         if String(respuesta) == String(resultado){
             imageView.image = UIImage(named: "marioCheck")
@@ -70,18 +88,57 @@ class ViewControllerEasyMath: UIViewController {
             scoreView.text = "SCORE: " + String(scoreGame)
             principal()
             
+            guard let path = Bundle.main.path(forResource: "mario grow Sound Effect", ofType:"wav") else {
+                return }
+            let url = URL(fileURLWithPath: path)
+
+            do {
+                player = try AVAudioPlayer(contentsOf: url)
+                player?.play()
+                
+            } catch let error {
+                print(error.localizedDescription)
+        }
         }else{
             imageView.image = UIImage(named: "marioError")
             lifesGame = lifesGame - 1
             principal()
+            
+            guard let path = Bundle.main.path(forResource: "Mario Damage Sound", ofType:"wav") else {
+                return }
+            let url = URL(fileURLWithPath: path)
+
+            do {
+                player = try AVAudioPlayer(contentsOf: url)
+                player?.play()
+                
+            } catch let error {
+                print(error.localizedDescription)
+        }
+            
             if (lifesGame == 0){
+                
                 btnOutlet01.isEnabled = false
                 btnOutlet02.isEnabled = false
                 btnOutlet03.isEnabled = false
+                
                 var dialogMessage = UIAlertController(title: "GAME OVER", message: "Try it Again", preferredStyle: .alert)
                 let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in })
                 dialogMessage.addAction(ok)
                 self.present(dialogMessage, animated: true, completion: nil)
+                
+                guard let path = Bundle.main.path(forResource: "Mario bros game over", ofType:"wav") else {
+                    return }
+                let url = URL(fileURLWithPath: path)
+
+                do {
+                    player = try AVAudioPlayer(contentsOf: url)
+                    player?.play()
+                    
+                } catch let error {
+                    print(error.localizedDescription)
+            }
+                
                 imgLife01.isHidden = true
             }else if(lifesGame == 1){
                 imgLife02.isHidden = true

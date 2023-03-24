@@ -6,8 +6,11 @@
 //
 
 import UIKit
-
+import AVFoundation
+import AudioToolbox
 class ViewControllerHardMath: UIViewController {
+    
+    var player: AVAudioPlayer?
     
     @IBOutlet weak var scoreView: UILabel!
     @IBOutlet weak var numberOpView01: UILabel!
@@ -22,21 +25,39 @@ class ViewControllerHardMath: UIViewController {
     var lifesGame: Int = 1
     var scoreGame: Int = 0
     var resultado = 0
+
+    
     @IBOutlet weak var imgLife: UIImageView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         principal()
-        imgLife.image = UIImage(named: "mushroom_1up")
         scoreView.text = "SCORE: " +  String(scoreGame)
         
     }
     
     @IBAction func btnReset(_ sender: UIButton) {
-        lifesGame = 3
+        lifesGame = 1
         scoreGame = 0
+        
+        guard let path = Bundle.main.path(forResource: "POW", ofType:"wav") else {
+            return }
+        let url = URL(fileURLWithPath: path)
+
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            player?.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
+    }
+        
+        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+        
         imgLife.isHidden = false
+        
         scoreView.text = "SCORE: " +  String(scoreGame)
         btnOutlet01.isEnabled = true
         btnOutlet02.isEnabled = true
@@ -47,7 +68,7 @@ class ViewControllerHardMath: UIViewController {
     @IBAction func btnAction(_ sender: UIButton) {
         var respuesta = sender.currentTitle ?? ""
         
-        if (scoreGame == 9){
+        if (scoreGame == 3){
             btnOutlet01.isEnabled = false
             btnOutlet02.isEnabled = false
             btnOutlet03.isEnabled = false
@@ -56,6 +77,7 @@ class ViewControllerHardMath: UIViewController {
             let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in})
             dialogMessage.addAction(ok)
             self.present(dialogMessage, animated: true, completion: nil)
+            
         }
         if String(respuesta) == String(resultado){
             imageView.image = UIImage(named: "marioCheck")
@@ -63,19 +85,56 @@ class ViewControllerHardMath: UIViewController {
             scoreView.text = "SCORE: " + String(scoreGame)
             principal()
             
+            guard let path = Bundle.main.path(forResource: "mario grow Sound Effect", ofType:"wav") else {
+                return }
+            let url = URL(fileURLWithPath: path)
+
+            do {
+                player = try AVAudioPlayer(contentsOf: url)
+                player?.play()
+                
+            } catch let error {
+                print(error.localizedDescription)
+        }
         }else{
             imageView.image = UIImage(named: "marioError")
             lifesGame = lifesGame - 1
             principal()
             
+            guard let path = Bundle.main.path(forResource: "Mario Damage Sound", ofType:"wav") else {
+                return }
+            let url = URL(fileURLWithPath: path)
+
+            do {
+                player = try AVAudioPlayer(contentsOf: url)
+                player?.play()
+                
+            } catch let error {
+                print(error.localizedDescription)
+        }
+            
             if (lifesGame == 0){
+                
                 btnOutlet01.isEnabled = false
                 btnOutlet02.isEnabled = false
                 btnOutlet03.isEnabled = false
+                
                 var dialogMessage = UIAlertController(title: "GAME OVER", message: "Try it Again", preferredStyle: .alert)
                 let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in })
                 dialogMessage.addAction(ok)
                 self.present(dialogMessage, animated: true, completion: nil)
+                
+                guard let path = Bundle.main.path(forResource: "Mario bros game over", ofType:"wav") else {
+                    return }
+                let url = URL(fileURLWithPath: path)
+
+                do {
+                    player = try AVAudioPlayer(contentsOf: url)
+                    player?.play()
+                    
+                } catch let error {
+                    print(error.localizedDescription)
+            }
                 
                 imgLife.isHidden = true
             }

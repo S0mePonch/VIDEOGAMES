@@ -3,13 +3,27 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		921EFE2529CCA75500E60E9C /* ViewControllerEasyMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921EFE2429CCA75500E60E9C /* ViewControllerEasyMath.swift */; };
 		921EFE2729CCA77800E60E9C /* ViewControllerNormalMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921EFE2629CCA77800E60E9C /* ViewControllerNormalMath.swift */; };
 		921EFE2929CCA81A00E60E9C /* ViewControllerHardMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921EFE2829CCA81A00E60E9C /* ViewControllerHardMath.swift */; };
+		9254BA8129CD13C60075B372 /* Pokemon Button.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9254BA8029CD13C60075B372 /* Pokemon Button.wav */; };
+		9254BA8429CD1B790075B372 /* ZeldaObtain Rupee.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9254BA8229CD1B790075B372 /* ZeldaObtain Rupee.wav */; };
+		9254BA8529CD1B790075B372 /* pokemon.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9254BA8329CD1B790075B372 /* pokemon.wav */; };
+		9254BA8729CD2BF30075B372 /* Mario Pipe Warping Sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9254BA8629CD2BF30075B372 /* Mario Pipe Warping Sound.wav */; };
+		9254BA8929CD2DDE0075B372 /* Super Mario 64 OST.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9254BA8829CD2DDE0075B372 /* Super Mario 64 OST.wav */; };
+		9254BA8B29CD32060075B372 /*  Zelda Sound Secret.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9254BA8A29CD32060075B372 /*  Zelda Sound Secret.wav */; };
+		926A6E2629CD652B00C9B147 /* Mario Damage Sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 926A6E2229CD652A00C9B147 /* Mario Damage Sound.wav */; };
+		926A6E2829CD652B00C9B147 /* mario grow Sound Effect.wav in Resources */ = {isa = PBXBuildFile; fileRef = 926A6E2429CD652A00C9B147 /* mario grow Sound Effect.wav */; };
+		926A6E2929CD652B00C9B147 /* Mario bros game over.wav in Resources */ = {isa = PBXBuildFile; fileRef = 926A6E2529CD652A00C9B147 /* Mario bros game over.wav */; };
+		926A6E2D29CD850B00C9B147 /* link damage.wav in Resources */ = {isa = PBXBuildFile; fileRef = 926A6E2A29CD850A00C9B147 /* link damage.wav */; };
+		926A6E2E29CD850B00C9B147 /* Link gameOver.wav in Resources */ = {isa = PBXBuildFile; fileRef = 926A6E2B29CD850B00C9B147 /* Link gameOver.wav */; };
+		926A6E2F29CD850B00C9B147 /* link correctQuest.wav in Resources */ = {isa = PBXBuildFile; fileRef = 926A6E2C29CD850B00C9B147 /* link correctQuest.wav */; };
+		926A6E3129CD8E5B00C9B147 /* VT323-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 926A6E3029CD8E5A00C9B147 /* VT323-Regular.ttf */; };
+		926A6E3329CDA67200C9B147 /* POW.wav in Resources */ = {isa = PBXBuildFile; fileRef = 926A6E3229CDA67200C9B147 /* POW.wav */; };
 		92D2C28429CC381B00735E1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2C28329CC381B00735E1C /* AppDelegate.swift */; };
 		92D2C28629CC381B00735E1C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2C28529CC381B00735E1C /* SceneDelegate.swift */; };
 		92D2C28829CC381B00735E1C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2C28729CC381B00735E1C /* ViewController.swift */; };
@@ -28,6 +42,20 @@
 		921EFE2429CCA75500E60E9C /* ViewControllerEasyMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerEasyMath.swift; sourceTree = "<group>"; };
 		921EFE2629CCA77800E60E9C /* ViewControllerNormalMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerNormalMath.swift; sourceTree = "<group>"; };
 		921EFE2829CCA81A00E60E9C /* ViewControllerHardMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHardMath.swift; sourceTree = "<group>"; };
+		9254BA8029CD13C60075B372 /* Pokemon Button.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Pokemon Button.wav"; sourceTree = "<group>"; };
+		9254BA8229CD1B790075B372 /* ZeldaObtain Rupee.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "ZeldaObtain Rupee.wav"; sourceTree = "<group>"; };
+		9254BA8329CD1B790075B372 /* pokemon.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pokemon.wav; sourceTree = "<group>"; };
+		9254BA8629CD2BF30075B372 /* Mario Pipe Warping Sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Mario Pipe Warping Sound.wav"; sourceTree = "<group>"; };
+		9254BA8829CD2DDE0075B372 /* Super Mario 64 OST.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Super Mario 64 OST.wav"; sourceTree = "<group>"; };
+		9254BA8A29CD32060075B372 /*  Zelda Sound Secret.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = " Zelda Sound Secret.wav"; sourceTree = "<group>"; };
+		926A6E2229CD652A00C9B147 /* Mario Damage Sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Mario Damage Sound.wav"; sourceTree = "<group>"; };
+		926A6E2429CD652A00C9B147 /* mario grow Sound Effect.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "mario grow Sound Effect.wav"; sourceTree = "<group>"; };
+		926A6E2529CD652A00C9B147 /* Mario bros game over.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Mario bros game over.wav"; sourceTree = "<group>"; };
+		926A6E2A29CD850A00C9B147 /* link damage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "link damage.wav"; sourceTree = "<group>"; };
+		926A6E2B29CD850B00C9B147 /* Link gameOver.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Link gameOver.wav"; sourceTree = "<group>"; };
+		926A6E2C29CD850B00C9B147 /* link correctQuest.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "link correctQuest.wav"; sourceTree = "<group>"; };
+		926A6E3029CD8E5A00C9B147 /* VT323-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VT323-Regular.ttf"; sourceTree = "<group>"; };
+		926A6E3229CDA67200C9B147 /* POW.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = POW.wav; sourceTree = "<group>"; };
 		92D2C28029CC381B00735E1C /* Nintendo Retro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nintendo Retro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92D2C28329CC381B00735E1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92D2C28529CC381B00735E1C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,9 +83,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9254BA7D29CD0E4F0075B372 /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				926A6E3229CDA67200C9B147 /* POW.wav */,
+				926A6E2C29CD850B00C9B147 /* link correctQuest.wav */,
+				926A6E2A29CD850A00C9B147 /* link damage.wav */,
+				926A6E2B29CD850B00C9B147 /* Link gameOver.wav */,
+				926A6E2529CD652A00C9B147 /* Mario bros game over.wav */,
+				926A6E2229CD652A00C9B147 /* Mario Damage Sound.wav */,
+				926A6E2429CD652A00C9B147 /* mario grow Sound Effect.wav */,
+				9254BA8A29CD32060075B372 /*  Zelda Sound Secret.wav */,
+				9254BA8829CD2DDE0075B372 /* Super Mario 64 OST.wav */,
+				9254BA8629CD2BF30075B372 /* Mario Pipe Warping Sound.wav */,
+				9254BA8329CD1B790075B372 /* pokemon.wav */,
+				9254BA8229CD1B790075B372 /* ZeldaObtain Rupee.wav */,
+				9254BA8029CD13C60075B372 /* Pokemon Button.wav */,
+			);
+			path = Asset;
+			sourceTree = "<group>";
+		};
 		92D2C27729CC381B00735E1C = {
 			isa = PBXGroup;
 			children = (
+				926A6E3029CD8E5A00C9B147 /* VT323-Regular.ttf */,
+				9254BA7D29CD0E4F0075B372 /* Asset */,
 				92D2C28229CC381B00735E1C /* Nintendo Retro */,
 				92D2C28129CC381B00735E1C /* Products */,
 			);
@@ -130,7 +180,7 @@
 				};
 			};
 			buildConfigurationList = 92D2C27B29CC381B00735E1C /* Build configuration list for PBXProject "Nintendo Retro" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -152,9 +202,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				926A6E2D29CD850B00C9B147 /* link damage.wav in Resources */,
+				9254BA8929CD2DDE0075B372 /* Super Mario 64 OST.wav in Resources */,
+				9254BA8529CD1B790075B372 /* pokemon.wav in Resources */,
+				926A6E2E29CD850B00C9B147 /* Link gameOver.wav in Resources */,
+				926A6E2929CD652B00C9B147 /* Mario bros game over.wav in Resources */,
 				92D2C29029CC381C00735E1C /* LaunchScreen.storyboard in Resources */,
 				92D2C28D29CC381C00735E1C /* Assets.xcassets in Resources */,
+				9254BA8B29CD32060075B372 /*  Zelda Sound Secret.wav in Resources */,
 				92D2C28B29CC381B00735E1C /* Main.storyboard in Resources */,
+				926A6E2629CD652B00C9B147 /* Mario Damage Sound.wav in Resources */,
+				926A6E2829CD652B00C9B147 /* mario grow Sound Effect.wav in Resources */,
+				9254BA8129CD13C60075B372 /* Pokemon Button.wav in Resources */,
+				9254BA8429CD1B790075B372 /* ZeldaObtain Rupee.wav in Resources */,
+				926A6E3329CDA67200C9B147 /* POW.wav in Resources */,
+				9254BA8729CD2BF30075B372 /* Mario Pipe Warping Sound.wav in Resources */,
+				926A6E3129CD8E5B00C9B147 /* VT323-Regular.ttf in Resources */,
+				926A6E2F29CD850B00C9B147 /* link correctQuest.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
